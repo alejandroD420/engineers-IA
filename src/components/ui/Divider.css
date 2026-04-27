@@ -1,0 +1,41 @@
+.divider {
+  border: none;
+}
+
+.divider-spacing-small {
+  margin: var(--spacing-small) 0;
+}
+
+.divider-spacing-medium {
+  margin: var(--spacing-base) 0;
+}
+
+.divider-spacing-large {
+  margin: var(--spacing-large) 0;
+}
+
+.divider-light {
+  border-top: 1px solid var(--color-border);
+}
+
+.divider-dark {
+  border-top: 1px solid var(--color-surface-light);
+}
+
+.divider-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.divider-content {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+}

@@ -1,0 +1,293 @@
+.cartesian-plane {
+  background: var(--color-surface-light);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plane-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  background: var(--color-surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+/* Fondo y grid */
+.plane-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(59, 130, 246, 0.08) 25%,
+      rgba(59, 130, 246, 0.08) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(59, 130, 246, 0.08) 75%,
+      rgba(59, 130, 246, 0.08) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(59, 130, 246, 0.08) 25%,
+      rgba(59, 130, 246, 0.08) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(59, 130, 246, 0.08) 75%,
+      rgba(59, 130, 246, 0.08) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 25% 25%, 25% 25%;
+  background-position: center;
+}
+
+.plane-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.grid-line {
+  position: absolute;
+  background: rgba(59, 130, 246, 0.15);
+  pointer-events: none;
+}
+
+.grid-line.horizontal {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.grid-line.vertical {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+/* Ejes */
+.plane-axes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.axis {
+  position: absolute;
+  background: var(--color-primary);
+  opacity: 0.5;
+}
+
+.axis-x {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.axis-y {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.axis-label-x {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 5;
+  border: 1px solid var(--color-border);
+}
+
+.axis-label-y {
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 5;
+  border: 1px solid var(--color-border);
+}
+
+/* Conexiones */
+.plane-connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Puntos */
+.plane-points {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.plane-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.point-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 2px var(--color-surface);
+  cursor: pointer;
+}
+
+.point-dot:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.point-label {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  padding: 2px 8px;
+  border-radius: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border);
+  z-index: 15;
+}
+
+.plane-point:hover .point-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Leyenda compacta */
+.plane-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+}
+
+.legend-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-text {
+  font-size: 11px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cartesian-plane {
+    padding: 12px;
+  }
+  
+  .plane-container {
+    max-width: 100%;
+  }
+  
+  .point-label {
+    font-size: 9px;
+    top: 14px;
+    padding: 2px 6px;
+  }
+  
+  .point-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .axis-label-x,
+  .axis-label-y {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+  
+  .axis-label-x {
+    bottom: -22px;
+  }
+  
+  .axis-label-y {
+    left: -22px;
+  }
+  
+  .legend-item {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+  
+  .legend-text {
+    font-size: 9px;
+  }
+}

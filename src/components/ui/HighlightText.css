@@ -1,0 +1,36 @@
+.highlight-wrapper {
+  display: inline;
+}
+
+.highlight {
+  display: inline;
+  background: transparent;
+  font-weight: 800;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.highlight-primary {
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.highlight-warning {
+  color: var(--color-warning);
+  border-bottom: 3px solid var(--color-warning);
+}
+
+.highlight-success {
+  color: var(--color-success);
+  border-bottom: 3px solid var(--color-success);
+}
+
+.highlight-danger {
+  color: var(--color-danger);
+  border-bottom: 3px solid var(--color-danger);
+}
+
+.highlight-info {
+  color: var(--color-info);
+  border-bottom: 3px solid var(--color-info);
+}

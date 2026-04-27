@@ -1,0 +1,215 @@
+.mcp-diagram {
+  background: var(--color-surface-light);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+.diagram-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+}
+
+.diagram-layer {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.diagram-node {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 180px;
+  transition: all 0.2s ease;
+}
+
+.ia-node {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+}
+
+.client-node {
+  border: 2px solid var(--color-primary);
+  background: var(--color-surface);
+}
+
+.node-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.node-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.node-subtitle {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.diagram-arrow {
+  text-align: center;
+  font-size: 24px;
+  color: var(--color-primary);
+  margin: 8px 0;
+}
+
+.diagram-arrow.down {
+  animation: bounce 2s infinite;
+}
+
+.servers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.server-card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  text-align: center;
+  min-width: 120px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.server-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.server-card.hovered {
+  border-color: var(--color-primary);
+  background: rgba(59,130,246,0.1);
+}
+
+.server-card.active {
+  border-color: var(--color-success);
+  background: rgba(34,197,94,0.1);
+}
+
+.server-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.server-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.server-description {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.active-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-success);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 20px;
+}
+
+.diagram-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-color.active-color {
+  background: var(--color-success);
+}
+
+.legend-color.inactive-color {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.legend-color.hover-color {
+  background: var(--color-primary);
+}
+
+.diagram-note {
+  background: rgba(59,130,246,0.1);
+  padding: 12px;
+  border-radius: var(--border-radius-small);
+  text-align: center;
+  font-size: 13px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mcp-diagram {
+    padding: 16px;
+  }
+  
+  .servers-grid {
+    gap: 10px;
+  }
+  
+  .server-card {
+    min-width: 100px;
+    padding: 12px;
+  }
+  
+  .server-icon {
+    font-size: 24px;
+  }
+  
+  .server-name {
+    font-size: 12px;
+  }
+  
+  .server-description {
+    font-size: 9px;
+  }
+  
+  .diagram-legend {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .design-title {
+    font-size: 16px;
+  }
+}

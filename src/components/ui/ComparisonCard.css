@@ -1,0 +1,83 @@
+.comparison-container {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin: var(--spacing-base) 0;
+}
+
+.comparison-left,
+.comparison-right {
+  flex: 1;
+  padding: var(--spacing-base);
+}
+
+.comparison-left {
+  background: rgba(239, 68, 68, 0.08);
+  border-right: 1px solid var(--color-border);
+}
+
+.comparison-right {
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.comparison-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 32px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-small);
+}
+
+.comparison-badge.bad {
+  background: var(--color-danger);
+  color: white;
+}
+
+.comparison-badge.good {
+  background: var(--color-success);
+  color: white;
+}
+
+.comparison-title {
+  font-size: var(--font-size-h4);
+  font-weight: 600;
+  margin-bottom: var(--spacing-small);
+}
+
+.comparison-content {
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.comparison-vs {
+  align-self: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-light);
+  padding: 8px 12px;
+  border-radius: 32px;
+}
+
+@media (max-width: 768px) {
+  .comparison-container {
+    flex-direction: column;
+  }
+
+  .comparison-left {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-vs {
+    align-self: center;
+    margin: -12px 0;
+    position: relative;
+    z-index: 1;
+  }
+}

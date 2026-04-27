@@ -1,0 +1,114 @@
+.animated-card {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-border);
+}
+
+.animated-card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.animated-card:hover .animated-card-glow {
+  opacity: 1;
+}
+
+.animated-card.hovered {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+/* Animaciones */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-pulse-card {
+  animation: pulseCard 2s ease-in-out infinite;
+}
+
+@keyframes pulseCard {
+  0%, 100% { border-color: var(--color-border); }
+  50% { border-color: var(--color-primary); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.05),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Variantes */
+.card-primary {
+  border-left: 3px solid var(--color-primary);
+}
+
+.card-success {
+  border-left: 3px solid var(--color-success);
+}
+
+.card-warning {
+  border-left: 3px solid var(--color-warning);
+}
+
+/* Header y contenido */
+.animated-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--spacing-base);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.animated-card-header h3 {
+  margin: 0;
+  font-size: var(--font-size-h4);
+}
+
+.animated-card-icon {
+  font-size: 28px;
+}
+
+.animated-card-body {
+  padding: var(--spacing-base);
+}

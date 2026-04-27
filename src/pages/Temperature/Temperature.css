@@ -1,0 +1,459 @@
+.page-temperature {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+  padding: var(--spacing-large) 0;
+  background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(234,179,8,0.05));
+  border-radius: var(--border-radius);
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: var(--spacing-base);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-base);
+}
+
+.hero-badges {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Headings */
+h2 {
+  font-size: 40px;
+  margin: var(--spacing-large) 0 var(--spacing-base);
+}
+
+/* Texto grande para explicación */
+.texto-grande {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.subtitulo-grande {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.lista-grande {
+  font-size: 18px;
+  margin-left: 24px;
+  line-height: 1.6;
+}
+
+.lista-grande li {
+  margin-bottom: 8px;
+}
+
+.temperatura-bajas {
+  background: rgba(59,130,246,0.1);
+  padding: 16px;
+  border-radius: var(--border-radius-small);
+  margin-bottom: 16px;
+}
+
+.temperatura-altas {
+  background: rgba(234,179,8,0.1);
+  padding: 16px;
+  border-radius: var(--border-radius-small);
+}
+
+/* Demo Temperature */
+.demo-temperature {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.demo-pregunta {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.slider-container-demo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.slider-label-frio {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-info);
+}
+
+.slider-label-calor {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-warning);
+}
+
+.respuesta-container {
+  background: var(--color-surface-light);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  text-align: center;
+}
+
+.respuesta-valor {
+  margin-bottom: 16px;
+}
+
+.respuesta-label {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  margin-right: 8px;
+}
+
+.respuesta-numero {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.respuesta-texto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.respuesta-icon {
+  font-size: 40px;
+}
+
+.respuesta-palabra {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.respuesta-explicacion {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  padding: 12px;
+  background: rgba(59,130,246,0.1);
+  border-radius: var(--border-radius-small);
+}
+
+/* Escala de temperature */
+.escala-temperature {
+  position: relative;
+  margin: 30px 0 20px;
+}
+
+.escala-barra {
+  display: flex;
+  height: 50px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.escala-frio {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.escala-equilibrio {
+  background: linear-gradient(90deg, #60a5fa, #fbbf24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.escala-calor {
+  background: linear-gradient(90deg, #fbbf24, #ef4444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.escala-marcador {
+  position: absolute;
+  top: -25px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.marcador-punto {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.marcador-valor {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 6px;
+  background: var(--color-surface);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.escala-ejemplos {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.ejemplo-temp {
+  flex: 1;
+  text-align: center;
+  padding: 16px;
+  background: var(--color-surface-light);
+  border-radius: var(--border-radius-small);
+}
+
+.ejemplo-temp p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+/* Comparativa de respuestas */
+.comparativa-respuesta {
+  text-align: center;
+}
+
+.comparativa-pregunta {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+.comparativa-texto {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.comparativa-texto.frio {
+  color: var(--color-info);
+}
+
+.comparativa-texto.equilibrio {
+  color: var(--color-warning);
+}
+
+.comparativa-texto.calor {
+  color: var(--color-danger);
+}
+
+.comparativa-nota {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* Plataformas - NUEVA SECCIÓN */
+.plataformas-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.plataforma {
+  background: var(--color-surface-light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.plataforma:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.plataforma-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.plataforma-nombre {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.plataforma-detalle p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.plataforma-detalle code {
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.plataformas-nota {
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Regla práctica */
+.regla-card {
+  background: linear-gradient(135deg, var(--color-surface), var(--color-surface-dark));
+  border: 1px solid var(--color-primary);
+  margin: var(--spacing-large) 0;
+}
+
+.regla-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.regla-icon {
+  font-size: 56px;
+}
+
+.regla-texto h3 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.regla-texto p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.regla-ejemplo {
+  margin-top: 16px;
+  font-size: 18px;
+  color: var(--color-text-secondary);
+}
+
+/* Frase final */
+.frase-final {
+  background: linear-gradient(135deg, var(--color-surface), var(--color-surface-dark));
+  border: 1px solid var(--color-border);
+  margin-top: var(--spacing-large);
+  text-align: center;
+}
+
+.frase-centrada {
+  text-align: center;
+  padding: 30px;
+}
+
+.frase-texto-grande {
+  font-size: 36px;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+  
+  .frase-texto-grande {
+    font-size: 22px;
+  }
+  
+  .respuesta-palabra {
+    font-size: 20px;
+  }
+  
+  .regla-texto h3 {
+    font-size: 20px;
+  }
+  
+  .regla-texto p {
+    font-size: 14px;
+  }
+  
+  .escala-barra span {
+    font-size: 12px;
+  }
+  
+  .escala-ejemplos {
+    flex-direction: column;
+  }
+  
+  .plataformas-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .texto-grande {
+    font-size: 16px;
+  }
+  
+  .lista-grande {
+    font-size: 14px;
+  }
+  
+  .subtitulo-grande {
+    font-size: 16px;
+  }
+}
