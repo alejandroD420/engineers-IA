@@ -53,7 +53,6 @@ function App() {
   }
 
   const CurrentComponent = workshopPages[currentPage].component;
-  const mainContentClass = `main-content ${isSidebarCollapsed ? "sidebar-collapsed" : "sidebar-expanded"}`;
 
   return (
     <div className="app">
@@ -66,7 +65,7 @@ function App() {
         onCollapse={setIsSidebarCollapsed}
       />
 
-      <div className={mainContentClass}>
+      <div className="main-content">
         <Header
           title={workshopPages[currentPage].name}
           currentPage={currentPage}
