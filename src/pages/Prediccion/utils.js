@@ -27,7 +27,7 @@ export const probabilidades = [
 
 // Textos explicativos
 export const textosExplicativos = {
-  heroSubtitle: "Un LLM es una máquina de autocompletado estadístico glorificada",
+  heroSubtitle: "es una máquina de autocompletado estadístico glorificada",
   significado: "La IA no tiene conciencia, no tiene intenciones, no razona. Solo calcula qué palabra tiene más probabilidad de venir después de la anterior.",
   analogia: "La IA es como un actor que ha leído 10 millones de guiones. Puede improvisar como detective, médico o poeta. Pero no ES detective, no sabe medicina, no siente poesía. Solo imita muy bien lo que ha visto.",
   buclePrediccion: [

@@ -1,0 +1,432 @@
+.slide-deck {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-deck-content {
+  flex: 1;
+}
+
+.slide-section {
+  width: 100%;
+}
+
+.slide-deck .hero {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   NAVEGACIÓN INFERIOR
+   ============================================ */
+.deck-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 8px;
+  position: relative;
+  z-index: 10;
+}
+
+.deck-arrow {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-secondary);
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  user-select: none;
+  -webkit-user-select: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.deck-arrow:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: scale(1.15);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.deck-arrow:active {
+  transform: scale(0.95);
+}
+
+.deck-arrow-prev,
+.deck-arrow-next {
+  position: static;
+}
+
+/* ============================================
+   TRANSICIÓN: Slide Reveal (barrido digital)
+   ============================================ */
+@keyframes slideReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(80px);
+  }
+  60% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+  }
+}
+
+.anim-slide-reveal {
+  animation: slideReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideRevealReverse {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+    transform: translateX(-80px);
+  }
+  60% {
+    clip-path: inset(0 0 0 0%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+  }
+}
+
+.anim-slide-reveal-reverse {
+  animation: slideRevealReverse 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   TRANSICIÓN: 3D Scale + Rotate (efecto cubo)
+   ============================================ */
+@keyframes scaleRotate {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-12deg) scale(0.9);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+.anim-scale-rotate {
+  animation: scaleRotate 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleRotateReverse {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(12deg) scale(0.9);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+.anim-scale-rotate-reverse {
+  animation: scaleRotateReverse 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   TRANSICIÓN: Matrix Rain (decodificación digital)
+   ============================================ */
+@keyframes matrixRain {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px) scaleY(0.8);
+    filter: brightness(4) hue-rotate(90deg) blur(3px);
+  }
+  40% {
+    opacity: 0.6;
+    filter: brightness(2) hue-rotate(45deg) blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    filter: brightness(1) hue-rotate(0deg) blur(0);
+  }
+}
+
+.anim-matrix-rain {
+  animation: matrixRain 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes matrixRainReverse {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scaleY(0.8);
+    filter: brightness(4) hue-rotate(-90deg) blur(3px);
+  }
+  40% {
+    opacity: 0.6;
+    filter: brightness(2) hue-rotate(-45deg) blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    filter: brightness(1) hue-rotate(0deg) blur(0);
+  }
+}
+
+.anim-matrix-rain-reverse {
+  animation: matrixRainReverse 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   TRANSICIÓN: Scanline (barrido tipo CRT/escáner)
+   ============================================ */
+@keyframes scanline {
+  0% {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    filter: brightness(1.5) contrast(1.2);
+  }
+  30% {
+    clip-path: inset(70% 0 0 0);
+  }
+  60% {
+    clip-path: inset(30% 0 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.anim-scanline {
+  animation: scanline 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scanlineReverse {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    filter: brightness(1.5) contrast(1.2);
+  }
+  30% {
+    clip-path: inset(0 0 70% 0);
+  }
+  60% {
+    clip-path: inset(0 0 30% 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.anim-scanline-reverse {
+  animation: scanlineReverse 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   TRANSICIÓN: Matrix Decode (decodificación hexadecimal)
+   ============================================ */
+@keyframes matrixDecode {
+  0% {
+    opacity: 0;
+    filter: blur(5px) brightness(3) saturate(0.1) hue-rotate(120deg);
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.4);
+    transform: translateY(-10px);
+  }
+  40% {
+    opacity: 0.5;
+    filter: blur(2px) brightness(2) saturate(0.3) hue-rotate(60deg);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+  }
+  70% {
+    opacity: 0.85;
+    filter: blur(0.5px) brightness(1.2) saturate(0.7) hue-rotate(20deg);
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.1);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1) saturate(1) hue-rotate(0deg);
+    text-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+.anim-matrix-decode {
+  animation: matrixDecode 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes matrixDecodeReverse {
+  0% {
+    opacity: 0;
+    filter: blur(5px) brightness(3) saturate(0.1) hue-rotate(-120deg);
+    transform: translateY(10px);
+  }
+  40% {
+    opacity: 0.5;
+    filter: blur(2px) brightness(2) saturate(0.3) hue-rotate(-60deg);
+  }
+  70% {
+    opacity: 0.85;
+    filter: blur(0.5px) brightness(1.2) saturate(0.7) hue-rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1) saturate(1) hue-rotate(0deg);
+    transform: translateY(0);
+  }
+}
+
+.anim-matrix-decode-reverse {
+  animation: matrixDecodeReverse 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   TRANSICIÓN: Vector Reveal (expansión desde punto central)
+   ============================================ */
+@keyframes vectorReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(50% 50% 50% 50%);
+    filter: blur(6px) brightness(1.8) hue-rotate(240deg);
+    transform: scale(0.7);
+  }
+  40% {
+    opacity: 0.6;
+    clip-path: inset(25% 25% 25% 25%);
+    filter: blur(3px) brightness(1.4) hue-rotate(160deg);
+    transform: scale(0.9);
+  }
+  70% {
+    opacity: 0.9;
+    clip-path: inset(10% 10% 10% 10%);
+    filter: blur(1px) brightness(1.1) hue-rotate(80deg);
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0% 0% 0% 0%);
+    filter: blur(0) brightness(1) hue-rotate(0deg);
+    transform: scale(1);
+  }
+}
+
+.anim-vector-reveal {
+  animation: vectorReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes vectorRevealReverse {
+  0% {
+    opacity: 0;
+    clip-path: inset(25% 25% 25% 25%);
+    filter: blur(4px) brightness(1.5) hue-rotate(-240deg);
+    transform: scale(0.85);
+  }
+  60% {
+    opacity: 0.7;
+    clip-path: inset(10% 10% 10% 10%);
+    filter: blur(1px) brightness(1.2) hue-rotate(-120deg);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0% 0% 0% 0%);
+    filter: blur(0) brightness(1) hue-rotate(0deg);
+    transform: scale(1);
+  }
+}
+
+.anim-vector-reveal-reverse {
+  animation: vectorRevealReverse 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   TRANSICIÓN: Geo Reveal (expansión diamante geométrico)
+   ============================================ */
+@keyframes geoReveal {
+  0% {
+    opacity: 0;
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    filter: blur(5px) brightness(1.5) saturate(0.3) hue-rotate(200deg);
+    transform: scale(0.8);
+  }
+  45% {
+    opacity: 0.6;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    filter: blur(2px) brightness(1.3) saturate(0.6) hue-rotate(100deg);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    filter: blur(0) brightness(1) saturate(1) hue-rotate(0deg);
+    transform: scale(1);
+  }
+}
+
+.anim-geo-reveal {
+  animation: geoReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes geoRevealReverse {
+  0% {
+    opacity: 0;
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    filter: blur(4px) brightness(1.4) saturate(0.4) hue-rotate(-200deg);
+    transform: scale(0.85);
+  }
+  60% {
+    opacity: 0.7;
+    clip-path: polygon(25% 0%, 75% 0%, 75% 100%, 25% 100%);
+    filter: blur(1px) brightness(1.2) saturate(0.7);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    filter: blur(0) brightness(1) saturate(1) hue-rotate(0deg);
+    transform: scale(1);
+  }
+}
+
+.anim-geo-reveal-reverse {
+  animation: geoRevealReverse 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .deck-nav {
+    padding: 16px 0 4px;
+  }
+
+  .deck-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+}
