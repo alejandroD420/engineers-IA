@@ -1,15 +1,28 @@
 .page-portada {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
+}
+
+.portada-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 .page-portada.animated {
@@ -85,16 +98,6 @@
   50% {
     transform: translate(20px, 20px) scale(1.1);
   }
-}
-
-/* Contenido principal */
-.portada-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  width: 90%;
-  text-align: center;
-  padding: 20px 0;
 }
 
 /* Logo */
@@ -361,5 +364,157 @@
   .portada-btn {
     font-size: 16px;
     padding: 12px 24px;
+  }
+}
+
+/* ============================================
+   SUB-DIAPOSITIVAS
+   ============================================ */
+.sub-slide {
+  width: 100%;
+}
+
+/* ============================================
+   FLECHAS DE NAVEGACIÓN
+   ============================================ */
+.portada-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-arrow {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-secondary);
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  user-select: none;
+  -webkit-user-select: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: scale(1.15);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   ANIMACIONES DE TRANSICIÓN
+   ============================================ */
+
+/* Transición 0→1: Slide Reveal (barrido digital) */
+@keyframes slideReveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(80px);
+  }
+  60% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+  }
+}
+
+.anim-slide-reveal {
+  animation: slideReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Transición 1→0: Reverse Slide Reveal */
+@keyframes slideRevealReverse {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+    transform: translateX(-80px);
+  }
+  60% {
+    clip-path: inset(0 0 0 0%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+  }
+}
+
+.anim-slide-reveal-reverse {
+  animation: slideRevealReverse 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Transición 1→2: 3D Scale + Rotate (efecto cubo) */
+@keyframes scaleRotate {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-12deg) scale(0.9);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+.anim-scale-rotate {
+  animation: scaleRotate 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Transición 2→1: Reverse 3D Scale + Rotate */
+@keyframes scaleRotateReverse {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(12deg) scale(0.9);
+    filter: blur(4px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+.anim-scale-rotate-reverse {
+  animation: scaleRotateReverse 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Responsive arrows */
+@media (max-width: 768px) {
+  .portada-nav {
+    padding: 0 0 16px;
+  }
+
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
   }
 }

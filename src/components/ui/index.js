@@ -13,3 +13,4 @@ export { default as Grid } from './Grid.jsx';
 export { default as HighlightText } from './HighlightText.jsx';
 export { default as AnimatedBackground } from './AnimatedBackground.jsx';
 export { default as AnimatedCard } from './AnimatedCard.jsx';
+export { default as SlideDeck } from './SlideDeck.jsx';

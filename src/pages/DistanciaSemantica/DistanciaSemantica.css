@@ -2,6 +2,10 @@
   animation: fadeIn 0.5s ease;
 }
 
+.slide-deck .hero {
+  margin-bottom: 0;
+}
+
 /* Hero */
 .hero {
   text-align: center;
@@ -108,6 +112,16 @@ h2 {
   margin-bottom: 16px;
   text-align: center;
   line-height: 1.4;
+}
+
+.analogia-cta {
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 48px;
+  transition: all 0.2s ease;
 }
 
 .analogia-respuesta {

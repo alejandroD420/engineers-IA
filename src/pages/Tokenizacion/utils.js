@@ -58,7 +58,7 @@ export const textosExplicativos = {
   qrUrl: "https://tiktokenizer.vercel.app",
   momentoWow: {
     titulo: "¡El momento WOW!",
-    texto: '"Strawberry" tiene 8 letras pero solo 3 tokens en GPT-4o.',
+    texto: '"Strawberry" tiene 10 letras pero solo 3 tokens en GPT-4o.',
     explicacion: "¿Por qué la IA no puede contar letras? Porque NO ve letras sueltas. Ve 'Straw' como un bloque, 'berry' como otro. ¡Nunca ve la 'r' individual!",
     nota: "En GPT-3.5-turbo, 'Strawberry' son 4 tokens. ¡Los modelos mejoran con cada versión!"
   },
